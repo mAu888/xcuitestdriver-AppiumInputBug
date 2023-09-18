@@ -1,19 +1,17 @@
-//
-//  ViewController.swift
-//  AppiumInputBug
-//
-//  Created by mhanika on 18.09.23.
-//
-
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
+    @IBOutlet private var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        let url = Bundle.main.url(forResource: "index", withExtension: "html")
+        let data = try! Data(contentsOf: url!)
+        let string = String(data: data, encoding: .utf8)!
+
+        webView.isInspectable = true
+        webView.loadHTMLString(string, baseURL: nil)
     }
-
-
 }
-

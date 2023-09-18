@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.css">
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="text/babel">
+  const App = () => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event) => {
+      setValue(event.target.value);
+    };
+
+    return (
+      <div>
+        <input type="text" onChange={handleChange} />
+        <span>{value}</span>
+      </div>
+    );
+  };
+
+  ReactDOM.render(
+    <App />,
+    document.getElementById('container')
+  );
+  </script>
+</head>
+<body>
+  <div id="container"></div>
+</body>
+</html>
